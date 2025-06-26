@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تاریخ تولد شمسی - نسخه زیبا با انیمیشن</title>
+
+    <!-- بارگذاری CSS ها -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="datepicker.css" />
+</head>
+
+<body>
+    <div class="custom-datepicker py-10 px-4 font-sans">
+        <div class="max-w-md mx-auto">
+            <label for="birth_date" class="block mb-3 text-lg font-semibold text-gray-700">تاریخ تولد</label>
+            <input type="text" id="birth_date" placeholder="تاریخ تولد خود را انتخاب کنید" readonly
+                class="cursor-pointer w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none bg-white"
+                onclick="toggleDatePicker()" />
+
+            <div id="overlay" onclick="closeDatePicker()"></div>
+
+            <div id="datepicker-container" role="dialog" aria-modal="true" aria-labelledby="birth_date_label">
+                <div class="drag-bar"></div>
+                <div class="flex justify-end mb-5 px-4">
+                    <button class="close-btn" onclick="closeDatePicker()" aria-label="بستن">&times;</button>
+                </div>
+                <div class="select-wrapper">
+                    <select id="day-select" aria-label="روز"></select>
+                    <select id="month-select" aria-label="ماه"></select>
+                    <select id="year-select" aria-label="سال"></select>
+                </div>
+                <div class="px-4">
+                    <button onclick="confirmDate()">انتخاب تاریخ</button>
+                </div>
+            </div>
+
+            <input type="hidden" id="birth_date_hidden" />
+        </div>
+
+        <!-- بارگذاری JS ها -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/persian-date@1.1.0/dist/persian-date.min.js"></script>
+        <script src="datepicker.js"></script>
+</body>
+
+</html>

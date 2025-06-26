@@ -1,0 +1,149 @@
+  body {
+      font-family: "Vazir", "Tahoma", sans-serif;
+      background-color: #f3f4f6;
+  }
+
+  .custom-datepicker select {
+      appearance: none;
+      background-color: #f9fafb;
+      border: 1.5px solid #297cc0;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23297cc0' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6 9l6 6 6-6'/></svg>");
+      padding: 12px 2.5rem 12px 20px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.25rem 1.25rem;
+  }
+
+  .custom-datepicker select:hover,
+  .custom-datepicker select:focus {
+      outline: none;
+      border-color: #1f5f91;
+      box-shadow: 0 0 8px rgba(41, 124, 192, 0.4);
+  }
+
+  /* کانتینر انتخابگر تاریخ */
+  .custom-datepicker #datepicker-container {
+      position: fixed;
+      z-index: 9999;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      width: auto;
+  }
+
+  .custom-datepicker #datepicker-container.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+  }
+
+  /* دکمه‌ها */
+  .custom-datepicker #datepicker-container button {
+      background-color: #297cc0;
+      box-shadow: 0 6px 15px rgba(41, 124, 192, 0.5);
+      transition: background-color 0.3s ease;
+      padding: 14px 0;
+      font-weight: 800;
+      font-size: 1.125rem;
+      border-radius: 1.25rem;
+      color: white;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+  }
+
+  .custom-datepicker #datepicker-container button:hover {
+      background-color: #1f5f91;
+  }
+
+  /* دکمه بستن */
+  .custom-datepicker #datepicker-container .close-btn {
+      font-size: 2rem;
+      color: #6b7280;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-weight: 900;
+      line-height: 1;
+  }
+
+  .custom-datepicker #datepicker-container .close-btn:hover {
+      color: #297cc0;
+  }
+
+  /* نوار کشیدن (در حالت موبایل) */
+  .custom-datepicker #datepicker-container .drag-bar {
+      width: 50px;
+      height: 6px;
+      background-color: #d1d5db;
+      border-radius: 9999px;
+      margin: 0 auto 1rem auto;
+  }
+
+  .custom-datepicker .select-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .custom-datepicker #day-select {
+      width: 5.5rem;
+  }
+
+  .custom-datepicker #month-select {
+      width: 10rem;
+  }
+
+  .custom-datepicker #year-select {
+      width: 6.5rem;
+  }
+
+  /* حالت موبایل */
+  @media (max-width: 767px) {
+      .custom-datepicker #datepicker-container {
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 1rem 1rem 0 0;
+          max-width: 100%;
+          width: 100%;
+      }
+
+      .custom-datepicker .drag-bar {
+          display: block;
+      }
+  }
+
+  /* حالت دسکتاپ */
+  @media (min-width: 768px) {
+      .custom-datepicker .drag-bar {
+          display: none;
+      }
+  }
+
+  /* پوشش (Overlay) */
+  .custom-datepicker #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      z-index: 9990;
+      pointer-events: none;
+      transition: background-color 0.3s ease;
+  }
+
+  .custom-datepicker #overlay.open {
+      background: rgba(0, 0, 0, 0.3);
+      pointer-events: auto;
+  }
